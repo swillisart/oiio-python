@@ -163,16 +163,3 @@ jobs:
     inputs:
       pathtoPublish: '$(Build.ArtifactStagingDirectory)'
       artifactName: drop-$(python.version)
-
-  # Tests
-  - powershell: |
-      cd $(tests)
-      python --version
-      pip list
-      dir
-      python -m pip install --find-links=$(Build.ArtifactStagingDirectory) oiio
-      pip install pytest
-      pip list
-      pytest --verbose
-    displayName: Run rudimental test(s)
-
